@@ -1,0 +1,232 @@
+body {
+    background: #040d1a;
+    padding: 50px 150px;
+    text-align: center;
+}
+
+.prototype-container-box {
+    width: 250px;
+    height: 250px;
+    padding-top: 60px;
+    position: relative;
+    .image-box {
+        background: url("../../assets/images/prototype_250x180.png");
+        width: 250px;
+        height: 176px;
+    }
+    /* Atom style */
+    .atom-container {
+        position: absolute;
+        right: 0;
+        width: 60px;
+        top: 0;
+        height: 60px;
+        & > div {
+            position: absolute;
+            z-index: 10;
+            width: 15px;
+            height: 50px;
+            right: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            background: transparent;
+        }
+        & > div:nth-child(1) {
+            z-index: 6;
+            transform: rotate(60deg);
+        }
+
+        & > div:nth-child(2) {
+            z-index: 6;
+            transform: rotate(120deg);
+        }
+        .atom-proton {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            margin: 20px 3px;
+            border-radius: 50%;
+            background-color: rgb(245, 229, 6);
+        }
+
+        .atom-electron {
+            position: absolute;
+            top: 45%;
+            left: -6px;
+
+            &:after {
+                content: "";
+                display: block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                /* background-color: rgba(255, 81, 0, 1); */
+            }
+
+            &.elect1 {
+                animation: fnAnim_atom_elec_lr 3s infinite;
+
+                &:after {
+                    animation: fnAnim_atom_elec_ud 3s infinite;
+                    background-color: rgb(0, 60, 255);
+                }
+            }
+
+            &.elect2 {
+                animation: fnAnim_atom_elec_lr 4s infinite;
+                &:after {
+                    animation: fnAnim_atom_elec_ud 4s infinite;
+                    background-color: greenyellow;
+                }
+            }
+
+            &.elect4 {
+                animation: fnAnim_atom_elec_lr 2s infinite;
+                &:after {
+                    animation: fnAnim_atom_elec_ud 2s infinite;
+                    background-color: rgb(255, 0, 34);
+                }
+            }
+        }
+        @keyframes fnAnim_atom_elec_lr {
+            0% {
+                animation-timing-function: ease-in;
+                transform: translateX(0px);
+            }
+
+            25% {
+                animation-timing-function: ease-out;
+                transform: translateX(10px);
+            }
+
+            50% {
+                animation-timing-function: ease-in;
+                transform: translateX(20px);
+            }
+
+            75% {
+                animation-timing-function: ease-out;
+                transform: translateX(15px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes fnAnim_atom_elec_ud {
+            0% {
+                animation-timing-function: ease-out;
+                transform: translateY(0px);
+            }
+
+            25% {
+                animation-timing-function: ease-in;
+                transform: translateY(-30px);
+            }
+
+            50% {
+                animation-timing-function: ease-out;
+                transform: translateY(0px);
+            }
+
+            75% {
+                animation-timing-function: ease-in;
+                transform: translateY(25px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    }
+    /* end Atom style */
+
+    /*boiling water*/
+    .waterflow-block {
+        width: 64px;
+        height: 64px;
+        overflow: hidden;
+        border: 1px solid lightgray;
+        border-radius: 0 0 50% 50%;
+
+        &.waterflow-block_blue-bottle {
+            position: absolute;
+            right: 7px;
+            top: 113px;
+            border: 0;
+        }
+        & span {
+            display: block;
+            animation: waterflowtb 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        & .one {
+            animation: waterflowlr 40s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        & .two {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: waterflowlr 33s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes waterflowlr {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-960px);
+            }
+        }
+
+        @keyframes waterflowtb {
+            from {
+                transform: scaleY(0.75) translateY(10px);
+            }
+
+            to {
+                transform: scaleY(1) translateY(0);
+            }
+        }
+    }
+    /*end boiling water*/
+
+    /* water bubble*/
+    .waterbubble-block-bottle {
+        position: absolute;
+        right: 15px;
+        top: 113px;
+        border: 0;
+    }
+    .waterbubble-block-green{
+        position: absolute;
+        left: 25px;
+        top: 113px;
+        border: 0;
+
+    }
+    .waterbubble-block-orange{
+        position: absolute;
+        left: 60px;
+        top: 113px;
+        border: 0;
+
+    }
+    .waterbubble-block-purple{
+        position: absolute;
+        left: 105px;
+        top: 113px;
+        border: 0;
+
+    }
+    /*end water bubble*/
+}
