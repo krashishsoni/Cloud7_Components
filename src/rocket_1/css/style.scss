@@ -1,0 +1,621 @@
+html {
+  --brown: #522b13;
+  --darkBrown: #4b2007;
+
+  --cream: #f4d5a4;
+  --darkCream: #e8b97f;
+
+  --lightOrange: #e89d38;
+  --darkLightOrange: #bf702d;
+
+  --darkOrange: #c54620;
+  --darkDarkOrange: #a53518;
+
+  --engineYellow: #efb23d;
+  --engineOrange: #e68431;
+
+  --lightTrail: #f7e9b9;
+  --darkTrail: #f3de8d;
+
+  --starColour: #f4ae45;
+
+  --cloudColour: #282521;
+
+  --satelliteLight: #544c3f;
+  --satelliteDark: #3e372c;
+  --satelliteAccent: #2d2722;
+  --satelliteLightAccent: #7c7160;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.scene {
+  overflow: hidden;
+  position: relative;
+  width: 80em;
+  height: 60em;
+  margin: auto;
+  zoom: 0.3;
+}
+
+.big-rocket-ting {
+  height: 33em;
+  width: 8em;
+  background: linear-gradient(transparent 6.9em, var(--darkOrange) 7em);
+  margin: 0 auto;
+  position: relative;
+  border-top-left-radius: 7em 9em;
+  border-top-right-radius: 7em 9em;
+  margin-top: 5em;
+  z-index: 3;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &::before {
+    bottom: 0;
+    top: 6.9em;
+    background: linear-gradient(to right, var(--darkOrange) 50%, var(--darkDarkOrange) 50%);
+  }
+
+  &::after {
+    background: linear-gradient(to right, #db8f58 50%, #c04e26 50%);
+    height: 0.2em;
+    z-index: 1;
+    top: 7.4em;
+  }
+
+  &__nose {
+    border-radius: 80% 0.2em 55% 50% / 55% 0.2em 80% 50%;
+    transform: translateX(-50%) scaleY(1.2) rotate(-45deg);
+    width: 110.5%;
+    position: absolute;
+    top: 2em;
+    left: 50%;
+    background: linear-gradient(-135deg, var(--brown) 2.4em, var(--darkOrange) 2.5em);
+
+    &::before {
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 80% 0.2em 55% 50% / 55% 0.2em 80% 50%;
+      background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.19) 50%);
+    }
+  }
+}
+
+.space-shuttle {
+  height: 26em;
+  width: 6em;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -1em;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 2.8em 10em;
+    border-top-right-radius: 2.8em 10em;
+    background: linear-gradient(to right, var(--cream) 50%, var(--darkCream) 50%);
+    z-index: 1;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, var(--lightOrange) 50%, var(--darkLightOrange) 50%);
+    height: 5.6em;
+    z-index: 1;
+  }
+
+  &__engine {
+    position: absolute;
+    top: 100%;
+    left: 0.5em;
+    height: 1em;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 0;
+      width: 1em;
+      height: 0.4em;
+      background: var(--engineOrange);
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      height: 0;
+      width: 1.2em;
+      border-bottom: 0.6em solid var(--engineYellow);
+      border-left: 0.1em solid transparent;
+      border-right: 0.1em solid transparent;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--right {
+      right: 0.5em;
+      left: auto;
+    }
+  }
+
+  &__tail {
+    height: 8.5em;
+    width: 0.8em;
+    margin: 0 auto;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1.9em; /* 1.9 to fix small gap in FF */
+      left: 0;
+      right: 0;
+      bottom: 1.2em;
+      background: linear-gradient(to right, var(--cream) 50%, var(--lightOrange) 50%);
+    }
+
+    &__top {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: absolute;
+        top: 0;
+      }
+
+      &::before {
+        border-width: 0 0 2em 0.4em;
+        border-color: transparent transparent var(--cream) transparent;
+        left: 0;
+      }
+
+      &::after {
+        border-width: 2em 0 0 0.4em;
+        border-color: transparent transparent transparent var(--lightOrange);
+        right: 0;
+      }
+    }
+
+    &__bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: absolute;
+        bottom: 0;
+      }
+
+      &::before {
+        border-width: 0 0.4em 1.2em 0;
+        border-color: transparent var(--cream) transparent transparent;
+        left: 0;
+      }
+
+      &::after {
+        border-width: 1.2em 0.4em 0 0;
+        border-color: var(--lightOrange) transparent transparent transparent;
+        right: 0;
+      }
+    }
+  }
+
+  &__wings {
+    position: absolute;
+    display: inline-flex;
+    height: 19em;
+    overflow: hidden;
+    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6em;
+    padding: 0 1em;
+    color: var(--lightOrange);
+
+    &__inner {
+      filter: url(#goo);
+      position: relative;
+    }
+
+    &__1 {
+      width: 8em;
+      height: 18em;
+      background: currentColor;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    &__2 {
+      width: 20em;
+      height: 20em;
+      background: currentColor;
+      border-radius: 50%;
+      margin-top: 9.5em;
+    }
+
+    &--2 {
+      transform: translateX(-50%) scale(0.92) translateY(0.85em);
+      color: #e66f2c;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 3.4em;
+        height: 0.5em;
+        background: #eed0a1;
+        position: absolute;
+        z-index: 1;
+        bottom: 0.6em;
+      }
+
+      &::before {
+        left: 0.9em;
+      }
+
+      &::after {
+        right: 0.9em;
+      }
+
+      .space-shuttle__wings__1 {
+        width: 7.5em;
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #dfbe88 50%, #ca9d6b 50%);
+    height: 0.1em;
+    z-index: 1;
+
+    &--1 {
+      top: 8.5em;
+    }
+
+    &--2 {
+      top: 15em;
+    }
+  }
+
+  &__windows {
+    position: absolute;
+    top: 2em;
+    left: 50%;
+    z-index: 1;
+    left: 0;
+    right: 0;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 0.5em;
+      height: 0.7em;
+      position: absolute;
+      top: 0.2em;
+      z-index: 2;
+      background: var(--darkBrown);
+    }
+
+    &::before {
+      left: 1.5em;
+      transform: rotate(-20deg);
+    }
+
+    &::after {
+      right: 1.5em;
+      transform: rotate(20deg);
+    }
+
+    &__middle {
+      width: 2em;
+      height: 1em;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 7em;
+        height: 7em;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 0.7em solid var(--darkBrown);
+      }
+
+      &__line {
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          width: 0.4em;
+          height: 2em;
+          position: absolute;
+          top: 0;
+        }
+
+        &::before {
+          background: var(--cream);
+          transform: rotate(-20deg);
+          left: 0;
+        }
+
+        &::after {
+          background: var(--darkCream);
+          transform: rotate(20deg);
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.side-booster {
+  height: 30em;
+  width: 3.4em;
+  position: absolute;
+  bottom: -3em;
+  z-index: 1;
+  display: flex;
+  flex-direction: column-reverse;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 1.2em;
+    left: 0;
+    right: 0;
+  }
+
+  &::before {
+    top: 3em;
+    background: linear-gradient(to right, var(--cream) 50%, var(--darkCream) 50%);
+  }
+
+  &::after {
+    height: 3em;
+    background: linear-gradient(to right, var(--brown) 50%, var(--darkBrown) 50%);
+  }
+
+  &__nose {
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1.2) rotate(-45deg);
+    width: 3.8em;
+    border-radius: 80% 0.1em 55% 50% / 55% 0.1em 80% 50%;
+    background: linear-gradient(135deg, var(--cream) 50%, #e8b97f 50%);
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__stripe {
+    background: linear-gradient(to right, var(--brown) 50%, var(--darkBrown) 50%);
+    height: 0.8em;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    &--1 {
+      top: 4.5em;
+    }
+
+    &--2 {
+      top: 11.5em;
+    }
+
+    &--3 {
+      top: 14em;
+    }
+  }
+
+  &__engine {
+    left: 0;
+    right: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 0;
+      width: 2.6em;
+      border-bottom: 0.5em solid var(--engineOrange);
+      border-left: 0.2em solid transparent;
+      border-right: 0.2em solid transparent;
+      margin: 0 auto;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      width: 3.8em;
+      border-bottom: 0.7em solid var(--engineYellow);
+      border-left: 0.3em solid transparent;
+      border-right: 0.3em solid transparent;
+      margin: 0 0 0 -0.2em;
+    }
+  }
+
+  &__trail {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--lightTrail);
+    height: 5em;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 3em;
+      border-style: solid;
+      border-color: transparent transparent var(--lightTrail) transparent;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 100%;
+      width: 5em;
+      height: 5em;
+      background: var(--lightTrail);
+      border-radius: 50%;
+      margin-left: -0.8em;
+    }
+  }
+
+  &__trail-dark {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 16em;
+      // left: 0;
+      background: var(--darkTrail);
+      height: 7em;
+      width: 7em;
+      border-radius: 50%;
+    }
+  }
+
+  &--left {
+    right: 100%;
+
+    .side-booster {
+      &__trail {
+        &::before {
+          right: -2em;
+          border-width: 0 2em 18em 17em;
+        }
+
+        &::after {
+          box-shadow:
+              // Above outline of trail
+            0 -1em 0 var(--lightTrail),
+            // Left outline of trail
+            -2em 1em 0 var(--lightTrail),
+            -4em 4em 0 var(--lightTrail), -7em 5em 0 var(--lightTrail), -8em 8em 0 var(--lightTrail),
+            -11em 9em 0 var(--lightTrail), -14em 11em 0 var(--lightTrail), -17em 12em 0 var(--lightTrail),
+            // Right outline of trail
+            2em 3em 0 var(--lightTrail),
+            3em 6em 0 var(--lightTrail), 3.5em 8em 0 var(--lightTrail), 4em 11em 0 var(--lightTrail);
+        }
+      }
+
+      &__trail-dark {
+        &::before {
+          left: 0;
+
+          box-shadow: -5em 1em 0 var(--darkTrail), -8em 2em 0 var(--darkTrail);
+        }
+      }
+    }
+  }
+
+  &--right {
+    left: 100%;
+
+    .side-booster {
+      &__trail {
+        &::before {
+          left: -2em;
+          border-width: 0 17em 18em 2em;
+        }
+
+        &::after {
+          box-shadow:
+              // Above outline of trail
+            0 -1em 0 var(--lightTrail),
+            // Right outline of trail
+            2em 1em 0 var(--lightTrail),
+            4em 4em 0 var(--lightTrail), 7em 5em 0 var(--lightTrail), 8em 8em 0 var(--lightTrail),
+            11em 9em 0 var(--lightTrail), 14em 11em 0 var(--lightTrail), 17em 12em 0 var(--lightTrail),
+            // Left outline of trail
+            -2em 3em 0 var(--lightTrail),
+            -3em 6em 0 var(--lightTrail), -3.5em 8em 0 var(--lightTrail), -4em 11em 0 var(--lightTrail);
+        }
+      }
+
+      &__trail-dark {
+        &::before {
+          right: 2em;
+          box-shadow: 4em 1em 0 var(--darkTrail), 4em -3em 0 var(--darkTrail), 8em 1em 0 var(--darkTrail),
+            12em 2em 0 var(--darkTrail);
+        }
+      }
+    }
+  }
+}
