@@ -1,0 +1,93 @@
+body {
+    background: #040d1a;
+    padding: 50px 150px;
+    text-align: center;
+}
+.projplan-container-box {
+    width: 200px;
+    height: 180px;
+    svg {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
+    svg .rect {
+        animation: puzslide 10s ease infinite;
+    }
+    svg #rect1 {
+        animation-delay: 0s;
+    }
+    svg #rect2 {
+        animation-delay: -1.42857143s;
+    }
+    svg #rect3 {
+        animation-delay: -2.85714286s;
+    }
+    svg #rect4 {
+        animation-delay: -4.28571429s;
+    }
+    svg #rect5 {
+        animation-delay: -5.71428571s;
+    }
+    svg #rect6 {
+        animation-delay: -7.14285714s;
+    }
+    svg #rect7 {
+        animation-delay: -8.57142857s;
+    }
+}
+
+@keyframes puzslide {
+    0% {
+        transform: translate(0, 0);
+    }
+    2% {
+        transform: translate(33px, 0);
+    }
+    12.5% {
+        transform: translate(33px, 0);
+    }
+    15.5% {
+        transform: translate(66px, 0);
+    }
+    25% {
+        transform: translate(66px, 0);
+    }
+    27% {
+        transform: translate(66px, 33px);
+    }
+    37.5% {
+        transform: translate(66px, 33px);
+    }
+    39.5% {
+        transform: translate(33px, 33px);
+    }
+    50% {
+        transform: translate(33px, 33px);
+    }
+    52% {
+        transform: translate(33px, 66px);
+    }
+    62.5% {
+        transform: translate(33px, 66px);
+    }
+    64.5% {
+        transform: translate(0, 66px);
+    }
+    75% {
+        transform: translate(0, 66px);
+    }
+    77% {
+        transform: translate(0, 33px);
+    }
+    87.5% {
+        transform: translate(0, 33px);
+    }
+    89.5% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
