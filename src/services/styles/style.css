@@ -1,0 +1,49 @@
+.Services {
+  background-color: #040d1a;
+  color: #d3d3d4;
+}
+
+p {
+  color: #484a4f;
+}
+
+.headings {
+  padding: 2% 15%;
+  text-align: center;
+}
+
+.blocks {
+  padding: 0.5% 7%;
+}
+
+.box {
+  background-color: #252c36;
+  margin: 20px 10px;
+  padding: 2% 2%;
+  text-align: center;
+}
+
+.box-icon {
+  padding: 3% 3%;
+}
+
+.box-icon:hover {
+  -webkit-animation: shakeX;
+          animation: shakeX;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.box-text {
+  padding: 3% 3%;
+}
+
+.box:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 10px 10px 0px 0px orange;
+          box-shadow: 10px 10px 0px 0px orange;
+}
+/*# sourceMappingURL=style.css.map */
