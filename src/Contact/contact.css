@@ -1,0 +1,72 @@
+.container {
+    max-width: 1410px;
+}
+
+h2.contacttag {
+    /* font-size: 45px; */
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+h3.Touch {
+    text-align: center;
+    font-size: 29px;
+    margin-bottom: 45px;
+}
+
+
+/* .name {
+    display: block;
+    width: 100%;
+    height: 60px;
+    outline: 0;
+    background-color: #F4F8FC;
+    border: 1px solid #E6EDF6;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+} */
+
+form-group {
+    margin-bottom: 20px;
+}
+
+.error {
+    margin: 3px;
+}
+
+.jsx-884309994 {
+    text-align: center;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.form-control.jsx-884309994 {
+    display: block;
+    width: 100%;
+    height: 60px;
+    outline: 0;
+    background-color: #F4F8FC;
+    border: 1px solid #E6EDF6;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 15px;
+    /* -webkit-transition: var(--transition);
+    -webkit-transition: var(--transition);
+    transition: var(--transition); */
+    font-size: 15px;
+}
